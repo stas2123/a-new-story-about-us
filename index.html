@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Наша история</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://i.imgur.com/W9IwC8r.jpg') center/cover fixed no-repeat;
+      font-family: 'Georgia', serif;
+      color: #2f1c14;
+    }
+    .page {
+      display: none;
+      max-width: 800px;
+      margin: 50px auto;
+      background: rgba(255, 248, 235, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    }
+    .page.active {
+      display: block;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .photo {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+    .button {
+      margin: 20px 5px 0;
+      padding: 10px 20px;
+      background: #5b4033;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .note {
+      background: #f5efe4;
+      border-left: 4px solid #b89c7d;
+      padding: 15px;
+      margin-top: 20px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="mainMusic" autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2023/03/28/audio_3f15c7cc2b.mp3" type="audio/mpeg">
+</audio>
+
+<div class="page active" id="p1">
+  <h2>Глава 1 — Биня</h2>
+  <p>День первый. Она написала мне первой. Началось то, что я никогда не забуду. Девушка, которая изменит мою историю. Я не знал, что такое любовь, пока не встретил ее.</p>
+  <img class="photo" src="https://files.catbox.moe/2h8jbz.jpg" alt="Биня">
+</div>
+
+<div class="page" id="p2">
+  <h2>День 8 — Она мне позвонила?</h2>
+  <p class="note">Данная девушка странная, но мне это нравится. Я отличаюсь от нее, но в то же время мы одинаковы судьбой. У нас разный стиль, разное понимание. Я не думал, что мне настолько понравится она. Да, она странная — слишком странная по сравнению со мной. Я "нормис", но... мне она нравится тем, какая она есть. Она позвала меня играть — наверняка во что-то типо майнкра... кс2? Она играет в CS2? И почему она молчит... Когда она уже скажет первое слово? Я не хочу говорить первым — вдруг она забоитс...</p>
+  <img class="photo" src="https://files.catbox.moe/8wbkm4.jpg" alt="Minecraft I ❤️ U">
+</div>
+
+<div class="page" id="p3">
+  <h2>День 12 — Ночь в рейве</h2>
+  <p>Как же всё-таки приятно, что есть с кем поболтать и просто посидеть, да даже поиграть и понести всякий бред, хахах. Но как будто она не полностью моя, как будто мы так близки, но не хватает... подтверждения. Я не могу сказать, что люблю ее?!? Стоп. Почему она меня спросила, встречаемся ли мы? Она совсем глупая? Как можно такое спрашивать напрямую? И как мне ответить? Я хочу сказать ДА, но вдруг она скажет, что не готова... Нужно быть чуть-чуть туманнее. Она согласилась??? Она хочет более лучшего признания, я умею выражать эмоции, и те эмоции, которые скопились за эти дни, я точно смогу выплеснуть. Я смогу ей доказать, что я тот самый парень, который ей нужен.</p>
+</div>
+
+<div class="page" id="p4">
+  <h2>День 33 — Месяц как мы вместе</h2>
+  <p>Я рад, что у меня есть такая девушка. Я рад, что даже несмотря на наши проблемы, несмотря на то, как далеко мы, несмотря на то, что мы часто обижаемся или сталкиваемся с трудностями — это делает нас сильнее. Она всегда думает, что виновата, и думает, что я возненавижу её. Но это бред, потому что иногда я могу обидеться по пустякам, потому что только в ней я могу найти любовь, и каждое её слово значит всё для меня. Это только начало нашей истории.</p>
+  <button class="button" onclick="document.getElementById('letter').classList.toggle('hidden')">Прочитай</button>
+  <div class="note hidden" id="letter">
+    поставь 4 на 3.
+  </div>
+  <img class="photo" src="https://files.catbox.moe/r3rqxz.jpg" alt="Её фото">
+  <div class="note" style="margin-top: 30px;">
+    Это только пилот книги. Это часть подарка. Можно сказать, как тизер...
+  </div>
+</div>
+
+<div style="text-align: center;">
+  <button class="button" onclick="prevPage()">← Назад</button>
+  <button class="button" onclick="nextPage()">Вперёд →</button>
+</div>
+
+<script>
+  let currentPage = 1;
+  const totalPages = 4;
+  function showPage(n) {
+    for (let i = 1; i <= totalPages; i++) {
+      document.getElementById('p' + i).classList.remove('active');
+    }
+    document.getElementById('p' + n).classList.add('active');
+  }
+  function nextPage() {
+    if (currentPage < totalPages) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  }
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      showPage(currentPage);
+    }
+  }
+</script>
+
+</body>
+</html>
